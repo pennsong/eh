@@ -1,16 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta content="Boks - 0.5.8" name="generator"/>
-		<title>Untitled</title>
-		<!-- Framework CSS -->
-		<link rel="stylesheet" href="<?php echo base_url("resource/css/screen.css");?>" type="text/css" media="screen, projection"/>
-		<link rel="stylesheet" href="<?php echo base_url("resource/css/print.css");?>" type="text/css" media="print"/>
-		<!--[if lt IE 8]><link rel="stylesheet" href="<?php echo base_url("resource/css/ie.css");?>" type="text/css" media="screen, projection"/><![endif]-->
-		<link rel="stylesheet" href="<?php echo base_url("resource/css/user.css");?>" type="text/css" media="screen, projection"/>
-		<script src="<?php echo base_url("resource/css/jquery.js");?>"></script>
-		<script src="<?php echo base_url("resource/flowplayer/flowplayer-3.2.6.min.js");?>"></script>
 		<script>
 			$(document).ready(function()
 			{
@@ -37,19 +24,6 @@
 			});
 
 		</script>
-	</head>
-	<body>
-		<div class="container ">
-			<div class="span-24 last top">
-				<div class="prepend-1 span-4">
-					<img src="<?php echo base_url("resource/pic/a.png");?>"/>
-				</div>
-				<div class="prepend-12 span-5 last" id="div_profile">
-					<a id="tt2" href="#"><img id="img_new" src="<?php echo base_url("resource/pic/default_profile_6_normal.png");?>" /><span id="test">123456ssss1</span></a>
-					<span id="bar"></span>
-					<a id="logout" href="#">退出</a>
-				</div>
-			</div>
 			<div class="info span-24 last">
 			</div>
 			<div class="large span-22">
@@ -127,6 +101,4 @@ LONG;
 							<span class="mail">点击左侧列表中的项目显示详细信息</span>
 						</div>
 					</div>
-				</div>
-	</body>
-</html>
+
