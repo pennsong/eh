@@ -28,7 +28,7 @@
 			</div>
 			<div class="large span-22">
 				<div class="main prepend-1 span-13">
-					<?php for ($i=0; $i < 10; $i++){
+					<?php foreach ($hunterTalentRecord as $item){
 					?>
 					<div class="content">
 						<div class="draw">
@@ -36,8 +36,8 @@
 								<a class="closeDraw" href="#">关闭<span>×</span></a>
 							</div>
 							<div>
-								<img src="<?php echo base_url("resource/pic/default_profile_6_normal.png");?>" />
-								张三
+								<img src="<?php echo base_url("upload/".$item['talentPhoto']);?>" />
+								<?php echo $item['talentName']?>
 							</div>
 							<div>
 								<span class="normalLink">若满意可点击</span><a id="buy">获取</a><span class="normalLink">获取联系方式,你的积分还有：100分</span>
@@ -45,15 +45,15 @@
 							<hr class="dashboard"/>
 							<div class="divVod">
 								<a
-								href="<?php echo base_url("upload/1.flv");?>"
+								href="<?php echo base_url("upload/".$item['talentVod']);?>"
 								style="display:block;width:320px;height:240px"
-								id="player"> </a>
+								id="player<?php echo $item['id'];?>"> </a>
 								<!-- this will install flowplayer inside previous A- tag. -->
 								<?php
 								$tmpUrl = base_url("resource/flowplayer/flowplayer-3.2.7.swf");
 								$tmpStr = <<<LONG
 <script>
-flowplayer("player", "{$tmpUrl}",
+flowplayer("player{$item['id']}", "{$tmpUrl}",
 {
 clip :
 {
@@ -76,13 +76,13 @@ LONG;
 						</div>
 						<div class="word">
 							<div class="ctitle">
-								<span>张三</span>
+								<span><?php echo $item['talentName']?></span>
 							</div>
 							<div class="ccontent">
-								<span>面貌较好，为人热情</span>
+								<span><?php echo $item['note']?></span>
 							</div>
 							<div class="ctime">
-								最近更新：1小时前
+								<?php echo $item['updated']?>
 							</div>
 						</div>
 					</div>

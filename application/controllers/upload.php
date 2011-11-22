@@ -17,7 +17,7 @@ class Upload extends CI_Controller
 				$file_temp = $_FILES['file']['tmp_name'];
 				$file_name = $_FILES['file']['name'];
 				//complete upload
-				$filestatus = move_uploaded_file($file_temp, "upload/".$file_name);
+				$filestatus = move_uploaded_file($file_temp, "/Library/WebServer/Documents/eh/upload/".$file_name);
 				if (!$filestatus)
 				array_push($errors, "Upload failed. Please try again.");
 				else
@@ -25,7 +25,7 @@ class Upload extends CI_Controller
 					$subject = $file_name;
 					$fileUrl = $file_name;
 					//extract hunter name, candidate mobile and candidate name unicode
-					$pattern = '/([A-Za-z0-9]{5,8})_([0-9]{11})_((?:#[0-9]{1,5}#){2,5})\.(png|flv)/';
+					$pattern = '/([A-Za-z0-9]{5,8})_([0-9]{11})_((?:![0-9]{1,5}!){2,5})\.(png|flv)/';
 					preg_match_all($pattern, $subject, $matches);
 					$hunter = $matches[1][0];
 					$mobile = $matches[2][0];
@@ -44,7 +44,7 @@ class Upload extends CI_Controller
 						$infoType = "wrong type";
 					}
 					//extract candidate name unicode string
-					$pattern2 = '/#([0-9]{1,5})#/';
+					$pattern2 = '/!([0-9]{1,5})!/';
 					preg_match_all($pattern2, $candiNameCode, $matches2);
 					$strUnicode = "";
 					foreach ($matches2[1] as $charCode)
