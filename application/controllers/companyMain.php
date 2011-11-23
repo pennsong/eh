@@ -33,10 +33,41 @@ class CompanyMain extends CI_Controller {
 			$var['infoError'] = '查询失败！请重试';
 		}
 		$vars['page_title'] = '公司首页';
-		$vars['content_view'] = 'hunterMain';
+		$vars['content_view'] = 'companyMain';
 		$this->load->library('pagination');
 		$this->pagination->initialize($config);
 		$this->load->view('template', $vars);
+	}
+
+	public function buyRecord()
+	{
+		$tmpRes = $this->db->query("SELECT FbuyTalentRecord(?, ?) AS fResult", array($this->session->userdata('userId'), $this->input->post('recordId')));
+		if ($tmpRes)
+		{
+			$tmpStr = $tmpRes->row()->fResult;
+			if (strpos($tmpStr,"OK") === false)
+			{
+				echo $tmpStr;
+			}
+			else
+			{
+				$tmpRes = $this->db->query("SELECT talentMobile FROM hunterTalentRecord WHERE id = ?", array($this->input->post('recordId')));
+				if ($tmpRes)
+				{
+					$tmpStr = $tmpRes->row()->talentMobile;
+					echo "购买成功!"."电话:".$tmpStr;
+				}
+				else
+				{
+					echo "购买失败!";
+				}
+			}
+
+		}
+		else
+		{
+			echo "购买失败!";
+		}
 	}
 }
 

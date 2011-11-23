@@ -14,17 +14,10 @@
 				});
 				$(".word").click(function()
 				{
-					$(".draw").hide();
-					$(this).siblings(".draw").show();
+					$(".draw").show();
+					$(".draw").load("<?php echo site_url("hunterDraw/index")."/";?>" + $("#contentItemId",this).val());
 				});
-				$(".closeDraw").click(function()
-				{
-					$(".draw").hide();
-				});
-				$('#saveNote').click(function()
-						{
-					$("#saveNoteInfo").load("<?php echo site_url('hunterMain/saveNote');?>", {"note":$("#note").val(), "recordId":$("#itemId").val()});
-						});
+			
 			});
 
 		</script>
@@ -32,58 +25,15 @@
 			</div>
 			<div class="large span-22">
 				<div class="main prepend-1 span-13">
+					<div class="draw"></div>
 					<?php foreach ($hunterTalentRecord as $item){
 					?>
 					<div class="content">
-						<div class="draw">
-							<div class="drawHead">
-								<a class="closeDraw" href="#">关闭<span>×</span></a>
-							</div>
-							<div>
-								<img src="<?php echo base_url("upload/".$item['talentPhoto']);?>" />
-								<?php echo $item['talentName']?>
-							</div>
-							<div>
-								<span class="normalLink">若满意可点击</span><a id="buy">获取</a><span class="normalLink">获取联系方式,你的积分还有：100分</span>
-							</div>
-							<hr class="dashboard"/>
-							<div class="divVod">
-								<a
-								href="<?php echo base_url("upload/".$item['talentVod']);?>"
-								style="display:block;width:320px;height:240px"
-								id="player<?php echo $item['id'];?>"> </a>
-								<!-- this will install flowplayer inside previous A- tag. -->
-								<?php
-								$tmpUrl = base_url("resource/flowplayer/flowplayer-3.2.7.swf");
-								$tmpStr = <<<LONG
-<script>
-flowplayer("player{$item['id']}", "{$tmpUrl}",
-{
-clip :
-{
-autoPlay : false,
-autoBuffering : true
-}
-});
-</script>
-LONG;
-								echo $tmpStr;
-								?>
-							</div>
-							<hr class="dashboard"/>
-							<input type="hidden" id="itemId" value="<?php echo $item['id']?>" />
-							<div class="note">
-								<textarea class="note" id="note" name="note"><?php echo $item['note']?></textarea>
-							</div>
-							<div>
-								<button id="saveNote">保存</button>
-								<div id="saveNoteInfo"></div>
-							</div>
-						</div>
 						<div class="clogo">
 							<img src="<?php echo base_url("resource/pic/default_profile_6_normal.png");?>" />
 						</div>
 						<div class="word">
+							<input type="hidden" id="contentItemId" value="<?php echo $item['id']?>"/>
 							<div class="ctitle">
 								<span><?php echo $item['talentName']?></span>
 							</div>
