@@ -21,10 +21,6 @@
 				{
 					$(".draw").hide();
 				});
-				$('#saveNote').click(function()
-						{
-					$("#saveNoteInfo").load("<?php echo site_url('hunterMain/saveNote');?>", {"note":$("#note").val(), "recordId":$("#itemId").val()});
-						});
 			});
 
 		</script>
@@ -71,13 +67,8 @@ LONG;
 								?>
 							</div>
 							<hr class="dashboard"/>
-							<input type="hidden" id="itemId" value="<?php echo $item['id']?>" />
 							<div class="note">
-								<textarea class="note" id="note" name="note"><?php echo $item['note']?></textarea>
-							</div>
-							<div>
-								<button id="saveNote">保存</button>
-								<div id="saveNoteInfo"></div>
+								<textarea class="note">备注信息</textarea>
 							</div>
 						</div>
 						<div class="clogo">

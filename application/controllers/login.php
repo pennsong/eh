@@ -37,7 +37,7 @@ class Login extends CI_Controller
 			}
 			else if ($this->session->userdata('type') == 'company')
 			{
-				redirect(base_url().'index.php/hunterMain');
+				redirect(base_url().'index.php/companyMain');
 			}
 			else
 			{
