@@ -25,7 +25,9 @@
 			</div>
 			<div class="large span-22">
 				<div class="main prepend-1 span-13">
-										<div class="draw">
+						<div class="pdraw">
+						<div class="draw">
+						</div>
 
 						</div>
 					<?php foreach ($hunterTalentRecord as $item){

@@ -596,7 +596,6 @@ div.info {
 	visibility: hidden;
 }
 div.main {
-	position: relative;
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
 	background-color: #FFFFFF;
 	margin: 0;
@@ -1026,18 +1025,25 @@ div.large {
 	margin-left: 40px;
 	margin-right: 40px;
 }
+div.pdraw
+{
+	position: relative;
+	z-index: 3000
+}
 div.draw {
 	position: absolute;
 	background-color: #FFFFFF;
-	left: 512px;
+	left: 520px;
 	top: 0px;
 	width: 336px;
 	height: 800px;
 	z-index: 1000;
 	padding-left: 10px;
 	padding-right: 10px;
+	z-index: 1000;
 	overflow: hidden;
-	display: none;
+	
+
 }
 div.drawcontent {
 }
