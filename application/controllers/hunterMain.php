@@ -4,7 +4,7 @@ class HunterMain extends CI_Controller {
 
 	public function index($offset = 0)
 	{
-		$pageSize = 2;
+		$pageSize = 10;
 		$config['base_url'] = site_url('hunterMain/index');
 		$config['per_page'] = $pageSize;
 		$config['uri_segment'] = '3';
