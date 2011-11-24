@@ -60,4 +60,7 @@
 							<span class="mail">点击左侧列表中的项目显示详细信息</span>
 						</div>
 					</div>
+					</div>
+					</div>
+					
 
