@@ -14,8 +14,15 @@
 					});
 					$(".word").click(function()
 					{
-						$(".draw").show();
-						$(".draw").load("<?php echo site_url("companyDraw/index")."/";?>" + $("#contentItemId",this).val());
+						$(".draw").html("");
+						$(".draw").hide();
+						$(".draw").load("<?php echo site_url("companyDraw/index")."/";?>" + $("#contentItemId",this).val(),
+								function(responseText, textStatus, XMLHttpRequest){
+									if (textStatus == 'success')
+									{
+										$(".draw").show()
+									}
+								});
 					});
 				
 				});
