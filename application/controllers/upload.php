@@ -98,6 +98,34 @@ class Upload extends CI_Controller
 		$this->_return("OK");
 	}
 
+	public function checkClientLogin($name, $pass)
+	{
+		$tmpRes = $this->db->query("SELECT password FROM hunter WHERE account = ?", array($name));
+		if ($tmpRes)
+		{
+			if ($tmpRes->num_rows() == 0)
+			{
+				$this->_return("用户名不存在");
+			}
+			else
+			{
+				$tmpStr = $tmpRes->row()->password;
+				if ($tmpStr != $pass)
+				{
+					$this->_return("密码错误");
+				}
+				else
+				{
+					$this->_return("OK");
+				}
+			}
+		}
+		else
+		{
+			$this->_return("数据查询失败");
+		}
+	}
+
 	private function _return($msg)
 	{
 		echo "logmsg:".$msg;
