@@ -13,13 +13,31 @@ class Upload extends CI_Controller
 		switch($_REQUEST['action'])
 		{
 			case "upload":
-
+				$uploadRoot = "/Library/WebServer/Documents/eh/upload/";
 				$file_temp = $_FILES['file']['tmp_name'];
-				$file_name = $_FILES['file']['name'];
+				date_default_timezone_set('Asia/Shanghai');
+				$dateStamp = date("Y_m_d");
+				$dateStampFolder = $uploadRoot.$dateStamp;
+				if (file_exists($dateStampFolder) && is_dir($dateStampFolder))
+				{
+				}
+				else
+				{
+					if (mkdir($dateStampFolder))
+					{
+					}
+					else
+					{
+						$this->_return("创建失败");
+					}
+				}
+				$file_name = $dateStamp."/".$_FILES['file']['name'];
 				//complete upload
-				$filestatus = move_uploaded_file($file_temp, "/Library/WebServer/Documents/eh/upload/".$file_name);
+				$filestatus = move_uploaded_file($file_temp, $uploadRoot.$file_name);
 				if (!$filestatus)
-				array_push($errors, "Upload failed. Please try again.");
+				{
+					$this->_return("上传失败");
+				}
 				else
 				{
 					$subject = $file_name;
@@ -60,7 +78,7 @@ class Upload extends CI_Controller
 						$tmpStr = $tmpRes->row()->fResult;
 						if (strpos($tmpStr,"OK") === false)
 						{
-							array_push($errors, "insert record failed.");
+							$this->_return("数据插入失败");
 						}
 						else
 						{
@@ -70,24 +88,20 @@ class Upload extends CI_Controller
 					}
 					else
 					{
-						array_push($errors, "insert record failed.");
+						$this->_return("数据查询失败");
 					}
 				}
 				break;
 			default:
-				array_push($errors, "No action was requested.");
+				$this->_return("操作指令错误");
 		}
-		$this->_return_result($success,$errors,$data);
+		$this->_return("OK");
 	}
 
-
-	private function _return_result($success,$errors,$data) {
-		echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-		echo "<results>";
-		echo "<success>$success</success>";
-		echo "$data";
-		$this->_echo_errors($errors);
-		echo "</results>";
+	private function _return($msg)
+	{
+		echo "logmsg:".$msg;
+		exit;
 	}
 
 	private function _echo_errors($errors) {
