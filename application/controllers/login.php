@@ -10,9 +10,10 @@ class Login extends CI_Controller
 		$this->load->helper('url');
 	}
 
-	public function index()
+	public function index($warnInfo="")
 	{
-		$this->load->view('login');
+		$vars['warnInfo'] = $warnInfo;
+		$this->load->view('login', $vars);
 	}
 
 	public function logout()
@@ -41,12 +42,12 @@ class Login extends CI_Controller
 			}
 			else
 			{
-				$this->index();
+				$this->index("请选择用户类型");
 			}
 		}
 		else
 		{
-			$this->index();
+			$this->index("用户名或密码错误");
 		}
 	}
 

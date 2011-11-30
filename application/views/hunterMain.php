@@ -13,10 +13,17 @@
 					}
 				});
 				$(".word").click(function()
-				{
-					$(".draw").show();
-					$(".draw").load("<?php echo site_url("hunterDraw/index")."/";?>" + $("#contentItemId",this).val());
-				});
+						{
+							$(".draw").html("");
+							$(".draw").hide();
+							$(".draw").load("<?php echo site_url("hunterDraw/index")."/";?>" + $("#contentItemId",this).val(),
+									function(responseText, textStatus, XMLHttpRequest){
+										if (textStatus == 'success')
+										{
+											$(".draw").show()
+										}
+									});
+						});
 			
 			});
 
@@ -25,7 +32,11 @@
 			</div>
 			<div class="large span-22">
 				<div class="main prepend-1 span-13">
-					<div class="draw"></div>
+						<div class="pdraw">
+						<div class="draw">
+						</div>
+
+						</div>
 					<?php foreach ($hunterTalentRecord as $item){
 					?>
 					<div class="content">

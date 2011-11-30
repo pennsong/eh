@@ -45,6 +45,7 @@ autoBuffering : true
 
 				$(".closeDraw").click(function()
 				{
+					$(".draw").html("");
 					$(".draw").hide();
 				});
 				$('#buy').click(function()

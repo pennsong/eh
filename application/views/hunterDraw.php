@@ -45,10 +45,11 @@ autoBuffering : true
 
 				$(".closeDraw").click(function()
 				{
+					$(".draw").html("");
 					$(".draw").hide();
 				});
-				$('#buy').click(function()
+				$('#saveNote').click(function()
 						{
-					$("#talentContact").load("<?php echo site_url('companyMain/buyRecord');?>", {"recordId":$("#itemId").val()});
+					$("#saveNoteInfo").load("<?php echo site_url('hunterMain/saveNote');?>", {"note":$("#note").val(), "recordId":$("#itemId").val()});
 						});
 		</script>

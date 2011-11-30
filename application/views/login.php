@@ -53,6 +53,9 @@
 									<span class="loginButton">登录</span>
 								</button>
 							</div>
+							<div>
+							<span class="warn"><?php echo $warnInfo?></span>
+							</div>
 						</div>
 			<?php
 			echo form_close();
