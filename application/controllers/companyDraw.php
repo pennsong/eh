@@ -10,7 +10,16 @@ class CompanyDraw extends CI_Controller {
 			$hunterTalentRecord = $tmpRes->result_array();
 			$vars['item'] = $hunterTalentRecord[0];
 			$tmpRes->free_all();
-
+			//check whether the photo and vod exists
+			if ($vars['item']['talentPhoto'] == null || $vars['item']['talentPhoto']=="" || !file_exists("upload/".$vars['item']['talentPhoto']))
+			{
+				$vars['item']['talentPhoto'] = "empty.png";
+			}
+			if ($vars['item']['talentPhoto'] == null || $vars['item']['talentPhoto']=="" || !file_exists("upload/".$vars['item']['talentVod']))
+			{
+				$vars['item']['talentVod'] = "empty.png";				
+			}
+			
 			//check whether the record was bought
 			$tmpRes = $this->db->query("SELECT FcheckCompanyBoughtRecord(?, ?) AS fResult", array($this->session->userdata('userId'), $recordId));
 			if ($tmpRes)

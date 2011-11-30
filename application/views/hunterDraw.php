@@ -3,7 +3,7 @@
 								<a class="closeDraw" href="#">关闭<span>×</span></a>
 							</div>
 							<div>
-								<img src="<?php echo base_url("upload/".$item['talentPhoto']);?>" />
+								<img style="display:block;width:320px;height:240px" src="<?php echo base_url("upload/".$item['talentPhoto']);?>" />
 								<?php echo $item['talentName']?>
 							</div>
 							<div>
