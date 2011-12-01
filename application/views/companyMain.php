@@ -46,10 +46,10 @@
 						<div class="word">
 							<input type="hidden" id="contentItemId" value="<?php echo $item['id']?>"/>
 							<div class="ctitle">
-								<span><?php echo $item['talentName']?></span>
+								<?php echo $item['talentName']?>
 							</div>
 							<div class="ccontent">
-								<span><?php echo $item['note']?></span>
+								<?php echo $item['note']?>
 							</div>
 							<div class="ctime">
 								<?php echo $item['updated']?>
