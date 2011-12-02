@@ -11,11 +11,11 @@ class HunterDraw extends CI_Controller {
 			$vars['item'] = $hunterTalentRecord[0];
 			$tmpRes->free_all();
 			//check whether the photo and vod exists
-			if (!file_exists("upload/".$vars['item']['talentPhoto']))
+			if ($vars['item']['talentPhoto'] == null || $vars['item']['talentPhoto']=="" || !file_exists("upload/".$vars['item']['talentPhoto']))
 			{
 				$vars['item']['talentPhoto'] = "empty.png";
 			}
-			if (!file_exists("upload/".$vars['item']['talentVod']))
+			if ($vars['item']['talentPhoto'] == null || $vars['item']['talentPhoto']=="" || !file_exists("upload/".$vars['item']['talentVod']))
 			{
 				$vars['item']['talentVod'] = "empty.png";				
 			}
