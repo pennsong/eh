@@ -960,7 +960,7 @@ div.content2 {
 .ccontent {
 	float: right;
 	width: 422px;
-	height: 38px;
+	height: 29px;
 	line-height: 15px;
 	font-size: 15px;
 	font-family: Arial, "Helvetica Neue", sans-serif;
@@ -969,16 +969,18 @@ div.content2 {
 	padding-right: 0;
 	padding-top: 0;
 	word-wrap: break-word;
-	margin-bottom: 0;
+	margin-bottom: 2px;
 	margin-left: 0;
 	margin-right: 0;
-	margin-top: 0;
+	margin-top: 2px;
 	cursor: pointer;
 	color: #444444;
+	vertical-align: top;
 	text-align: left;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
+	overflow: hidden
 }
 .ccontent a {
 
