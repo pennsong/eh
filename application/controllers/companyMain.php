@@ -27,7 +27,7 @@ class CompanyMain extends CI_Controller {
 		$vars['content_view'] = 'companyMain';
 		$this -> load -> library('pagination');
 		$this -> pagination -> initialize($config);
-		$this -> load -> view('template', $vars);
+		$this -> smarty -> view('template.tpl', $vars);
 	}
 
 	public function buyRecord() {

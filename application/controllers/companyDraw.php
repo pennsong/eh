@@ -24,7 +24,7 @@ class CompanyDraw extends CI_Controller {
 				if ($tmpRes) {
 					$tmpArray = $tmpRes -> result_array();
 					$vars['point'] = $tmpArray[0]['point'];
-					$this -> load -> view('companyDraw.php', $vars);
+					$this -> smarty -> view('companyDraw.tpl', $vars);
 				} else {
 					$var['infoError'] = '查询失败！请重试';
 				}
