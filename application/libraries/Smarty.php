@@ -1,5 +1,6 @@
-<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
-
+<?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 /**
  * Smarty Class
  *
@@ -9,29 +10,23 @@
  * @author		Kepler Gelotte
  * @link		http://www.coolphptools.com/codeigniter-smarty
  */
-
-require_once( BASEPATH.'libraries/Smarty/libs/Smarty.class.php' );
-
+require_once (BASEPATH . 'libraries/Smarty/libs/Smarty.class.php');
 class CI_Smarty extends Smarty {
-
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();
-
-		$this->compile_dir = APPPATH . "views/templates_c/";
-		$this->template_dir = APPPATH . "views/templates/";
-		$this->assign( 'APPPATH', APPPATH );
-		$this->assign( 'BASEPATH', BASEPATH );
-		$this->autoload_filters = array('pre' => array('convertSmartyDelimiter'));
+		$this -> compile_dir = APPPATH . "views/templates_c/";
+		$this -> template_dir = APPPATH . "views/templates/";
+		$this -> assign('APPPATH', APPPATH);
+		$this -> assign('BASEPATH', BASEPATH);
+		$this -> autoload_filters = array('pre' => array('convertSmartyDelimiter'));
 		log_message('debug', "Smarty Class Initialized");
 	}
-
 
 	/**
 	 *  Parse a template using the Smarty engine
 	 *
 	 * This is a convenience method that combines assign() and
-	 * display() into one step. 
+	 * display() into one step.
 	 *
 	 * Values to assign are passed in an associative array of
 	 * name => value pairs.
@@ -45,30 +40,23 @@ class CI_Smarty extends Smarty {
 	 * @param	bool
 	 * @return	string
 	 */
-	function view($template, $data = array(), $return = FALSE)
-	{
-		foreach ($data as $key => $val)
-		{
-			$this->assign($key, $val);
+	function view($template, $data = array(), $return = FALSE) {
+		foreach ($data as $key => $val) {
+			$this -> assign($key, $val);
 		}
-		
-		if ($return == FALSE)
-		{
-			$CI =& get_instance();
-			if (method_exists( $CI->output, 'set_output' ))
-			{
-				$CI->output->set_output( $this->fetch($template) );
-			}
-			else
-			{
-				$CI->output->final_output = $this->fetch($template);
+		if ($return == FALSE) {
+			$CI = &get_instance();
+			if (method_exists($CI -> output, 'set_output')) {
+				$CI -> output -> set_output($this -> fetch($template));
+			} else {
+				$CI -> output -> final_output = $this -> fetch($template);
 			}
 			return;
-		}
-		else
-		{
-			return $this->fetch($template);
+		} else {
+			return $this -> fetch($template);
 		}
 	}
+
 }
+
 // END Smarty Class

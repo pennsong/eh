@@ -15,7 +15,7 @@ class HunterDraw extends CI_Controller {
 			if ($vars['item']['talentPhoto'] == null || $vars['item']['talentPhoto'] == "" || !file_exists("upload/" . $vars['item']['talentVod'])) {
 				$vars['item']['talentVod'] = "empty.png";
 			}
-			$this -> load -> view('hunterDraw.php', $vars);
+			$this -> smarty -> view('hunterDraw.tpl', $vars);
 		} else {
 			$var['infoError'] = '查询失败！请重试';
 		}

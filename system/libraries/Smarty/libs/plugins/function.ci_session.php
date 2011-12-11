@@ -6,23 +6,23 @@
  */
 
 /**
- * Smarty {ci_db_session} function plugin
+ * Smarty {ci_session} function plugin
  *
  * Type:     function<br>
- * Name:     ci_db_session<br>
- * Purpose:  bridge to code igniter db_session properties
+ * Name:     ci_session<br>
+ * Purpose:  bridge to code igniter session properties
  * @author Neighbor Webmastert <kepler ar neighborwebmaster dot com>
  * @param array Format:
  * <pre>
  * array(
- *   'name' => required name of the db_session properties
+ *   'name' => required name of the session properties
  *   'type' => optional type 'user' or 'flash' - defaults to 'user'
  *   'assign' => optional smarty variable name to assign to - defaults to name
  * )
  * </pre>
  * @param Smarty
  */
-function smarty_function_ci_db_session($params, &$smarty)
+function smarty_function_ci_session($params, &$smarty)
 {
         if ($smarty->debugging) {
             $_params = array();
@@ -32,7 +32,7 @@ function smarty_function_ci_db_session($params, &$smarty)
 
         $_name = isset($params['name']) ? $params['name'] : '';
         $_type = isset($params['type']) ? $params['type'] : 'user';
-        $_assign = isset($params['assign']) ? $params['assign'] : $_name;
+        $_assign = isset($params['assign']) ? $params['assign'] : null;
 
         if ($_name != '')
         {
@@ -41,13 +41,21 @@ function smarty_function_ci_db_session($params, &$smarty)
 		    $value = '';
             if ($_type == 'user')
             {
-		        $value = $CI->db_session->userdata($_name);
+		        $value = $CI->session->userdata($_name);
             }
             else // flash
             {
-		        $value = $CI->db_session->flashdata($_name);
+		        $value = $CI->session->flashdata($_name);
             }
-		    $smarty->assign( $_assign, $value );
+            
+            if ( isset( $_assign ) )
+            {
+                $smarty->assign( $_assign, $value );
+            }
+            else
+            {
+                echo $value;
+            }
 		}
 
         if ($smarty->debugging) {

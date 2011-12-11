@@ -1,7 +1,7 @@
 <?php
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
-class HunterMain extends CI_Controller {
+class HunterMain extends CW_Controller {
 	public function index($offset = 0) {
 		$pageSize = 10;
 		$config['base_url'] = site_url('hunterMain/index');
@@ -28,7 +28,7 @@ class HunterMain extends CI_Controller {
 		$this -> load -> library('pagination');
 		$this -> pagination -> initialize($config);
 		$this -> load -> helper('form');
-		$this -> load -> view('template', $vars);
+		$this -> smarty -> view('template.tpl', $vars);
 	}
 
 	public function saveNote() {
