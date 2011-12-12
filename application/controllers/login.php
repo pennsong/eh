@@ -11,7 +11,7 @@ class Login extends CI_Controller {
 	public function index($warnInfo = "") {
 		$this -> load -> library('form_validation');
 		$vars['warnInfo'] = $warnInfo;
-		$this -> smarty -> view('login2.tpl', $vars);
+		$this -> smarty -> view('login.tpl', $vars);
 	}
 
 	public function logout() {

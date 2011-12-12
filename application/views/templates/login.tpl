@@ -9,74 +9,106 @@
 		<link rel="stylesheet" href="{url}resource/css/print.css" type="text/css" media="print"/>
 		<!--[if lt IE 8]><link rel="stylesheet" href="{url}resource/css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
 		<link rel="stylesheet" href="{url}resource/css/user.css" type="text/css" media="screen, projection"/>
-		<script src="{url}resource/css/jquery.js"></script>
-		<script src="{url}resource/flowplayer/flowplayer-3.2.6.min.js"></script>
 		<style type="text/css" media="screen">
 			body {
 				background-image: url("{url}resource/pic/bgfirst.png");
 				background-repeat: repeat-x;
 			}
-			div.logo {
-			}
 			div.title {
+				padding-top: 10px;
+				padding-bottom: 30px;
 			}
 			div.usernameLabel {
+				padding-top: 10px;
+				padding-bottom: 10px;
 			}
 			div.usernameInput {
 			}
 			div.passLabel {
+				padding-top: 10px;
+				padding-bottom: 10px;
 			}
 			div.passInput {
 			}
 			div.chooseTypeLabel {
+				padding-top: 10px;
+				padding-bottom: 10px;
 			}
-			div.typeHunter {
-			}
-			div.typeCompany {
+			div.chooseType {
+				padding-bottom: 10px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
-			<div class="span-24 last">
-				<img src="{url}resource/pic/logo.png"/>
+			<div class="span-64 last">
+				  <img src="{url}resource/pic/logo.png"/>
 			</div>
-			<div class="left prepend-1 span-12 head1">
-				欢迎来到E-hiring
-			</div>
-			<div class="right prepend-2 span-8 last">
+			<div class="clear span-64 last">
+				<div class="span-19 prepend-19 append-26 last title">
+					<div class="head1">
+						欢迎来到E-hiring
+					</div>
+				</div>
 				<form action="{url type='site' url='login/submit_validate'}" method="post">
-					<div class="login">
-						<div class="holding">
-							<input class="username" name="username" value="{ci_form_validation field='username'}" title="用户名" type="text" />
-							<span class="holder">用户名</span>
+					<div class="clear span-19 prepend-19 append-26 last usernameLabel">
+						<div class="label1">
+							用户名
 						</div>
-						<div class="holding">
-							<input class="username" name="password" title="密码" type="password" />
-							<span class="holder">密码</span>
+					</div>
+					<div class="clear span-19 prepend-19  append-26 last usernameInput">
+						<input class="input1" name="username" value="{ci_form_validation field='username'}" title="用户名" type="text" />
+						<div class="inline error1">
+							用户名错误提示
 						</div>
-						<div class="radio">
-							<!--{if !isset($smarty.post.type) or ($smarty.post.type!='company')}-->
-							<input type="radio" name="type" value="hunter" checked="checked"/>
-							<!--{else}-->
-							<input type="radio" name="type" value="hunter"/>
-							<!--{/if}-->
-							<span class="usertype">伯乐</span>
-							<!--{if isset($smarty.post.type) and $smarty.post.type=='company'}-->
-							<input type="radio" name="type" value="company" checked="checked"/>
-							<!--{else}-->
-							<input type="radio" name="type" value="company"/>
-							<!--{/if}-->
-							<span class="usertype">公司</span>
+					</div>
+					<div class="clear span-19 prepend-19 append-26 last passLabel">
+						<div class="label1">
+							密码
 						</div>
-						<div class="loginButton">
-							<button name="btnUsername" class="loginButton" title="用户名" type="submit">
-								<span class="loginButton">登录</span>
+					</div>
+					<div class="clear span-19 prepend-19  append-26 last passInput">
+						<input class="input1" name="password" title="密码" type="text" />
+						<div class="inline error1">
+							密码错误提示
+						</div>
+						 
+					</div>
+					<div class="clear span-19 prepend-19 append-26 last chooseTypeLabel">
+						<div class="label1">
+							请选择您的身份
+						</div>
+						 
+					</div>
+					<div class="clear span-19 prepend-19 append-26 last chooseType">
+						<!--{if !isset($smarty.post.type) or ($smarty.post.type!='company')}-->
+						<input type="radio" name="type" value="hunter" checked="checked"/>
+						<!--{else}-->
+						<input type="radio" name="type" value="hunter"/>
+						<!--{/if}-->
+						<div class="label1 inline">
+							伯乐
+						</div>
+						<!--{if isset($smarty.post.type) and $smarty.post.type=='company'}-->
+						<input type="radio" name="type" value="company" checked="checked"/>
+						<!--{else}-->
+						<input type="radio" name="type" value="company"/>
+						<!--{/if}-->
+						<div class="label1 inline">
+							公司
+						</div>
+						 
+					</div>
+					<div class="clear span-19 prepend-19  append-26 last">
+						<div class="inline">
+							<button class="button1" type="submit">
+								进入E-hiring
 							</button>
 						</div>
-						<div>
-							<span class="warn">{$warnInfo}</span>
+						<div class="inline error1">
+							 {$warnInfo}
 						</div>
+						 
 					</div>
 				</form>
 			</div>
