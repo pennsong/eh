@@ -44,7 +44,9 @@
 			</div>
 		</div>
 		<!--{/foreach}-->
-		<div class="head"></div>
+		<div class="head">
+			{ci_create_links}
+		</div>
 	</div>
 	<div class="dashboard prepend-1 span-7">
 		<div>

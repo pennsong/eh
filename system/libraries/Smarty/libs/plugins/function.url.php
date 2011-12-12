@@ -13,8 +13,7 @@
 function smarty_function_url($params, &$smarty) {
 	if (!function_exists('current_url')) {
 		if (!function_exists('get_instance')) {
-			$smarty -> trigger_error("url: Cannot load CodeIgniter");
-			return;
+			die("url: Cannot load CodeIgniter");
 		}
 		$CI = &get_instance();
 		$CI -> load -> helper('url');
