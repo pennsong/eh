@@ -11,53 +11,74 @@
 		<link rel="stylesheet" href="{url}resource/css/user.css" type="text/css" media="screen, projection"/>
 		<script src="{url}resource/css/jquery.js"></script>
 		<script src="{url}resource/flowplayer/flowplayer-3.2.6.min.js"></script>
+		<style type="text/css" media="screen">
+			body {
+				background-image: url("{url}resource/pic/bgfirst.png");
+				background-repeat: repeat-x;
+			}
+			div.logo {
+			}
+			div.title {
+			}
+			div.usernameLabel {
+			}
+			div.usernameInput {
+			}
+			div.passLabel {
+			}
+			div.passInput {
+			}
+			div.chooseTypeLabel {
+			}
+			div.typeHunter {
+			}
+			div.typeCompany {
+			}
+		</style>
 	</head>
-	<body class="firstPage">
+	<body>
 		<div class="container">
-			<div class="router_front span-24 last">
-				<div class="left prepend-1 span-12">
-					<h1>欢迎</h1>
-					<h2>发挥网络的力量</h2>
-					<p>
-						创新招聘平台
-					</p>
-				</div>
-				<div class="right prepend-2 span-8 last">
-					<form action="{url type='site' url='login/submit_validate'}" method="post">
-						<div class="login">
-							<div class="holding">
-								<input class="username" name="username" value="{ci_form_validation field='username'}" title="用户名" type="text" />
-								<span class="holder">用户名</span>
-							</div>
-							<div class="holding">
-								<input class="username" name="password" title="密码" type="password" />
-								<span class="holder">密码</span>
-							</div>
-							<div class="radio">
-								<!--{if !isset($smarty.post.type) or ($smarty.post.type!='company')}-->
-								<input type="radio" name="type" value="hunter" checked="checked"/>
-								<!--{else}-->
-								<input type="radio" name="type" value="hunter"/>
-								<!--{/if}-->
-								<span class="usertype">伯乐</span>
-								<!--{if isset($smarty.post.type) and $smarty.post.type=='company'}-->
-								<input type="radio" name="type" value="company" checked="checked"/>
-								<!--{else}-->
-								<input type="radio" name="type" value="company"/>
-								<!--{/if}-->
-								<span class="usertype">公司</span>
-							</div>
-							<div class="loginButton">
-								<button name="btnUsername" class="loginButton" title="用户名" type="submit">
-									<span class="loginButton">登录</span>
-								</button>
-							</div>
-							<div>
-								<span class="warn">{$warnInfo}</span>
-							</div>
+			<div class="span-24 last">
+				<img src="{url}resource/pic/logo.png"/>
+			</div>
+			<div class="left prepend-1 span-12 head1">
+				欢迎来到E-hiring
+			</div>
+			<div class="right prepend-2 span-8 last">
+				<form action="{url type='site' url='login/submit_validate'}" method="post">
+					<div class="login">
+						<div class="holding">
+							<input class="username" name="username" value="{ci_form_validation field='username'}" title="用户名" type="text" />
+							<span class="holder">用户名</span>
 						</div>
-					</form>
-				</div>
+						<div class="holding">
+							<input class="username" name="password" title="密码" type="password" />
+							<span class="holder">密码</span>
+						</div>
+						<div class="radio">
+							<!--{if !isset($smarty.post.type) or ($smarty.post.type!='company')}-->
+							<input type="radio" name="type" value="hunter" checked="checked"/>
+							<!--{else}-->
+							<input type="radio" name="type" value="hunter"/>
+							<!--{/if}-->
+							<span class="usertype">伯乐</span>
+							<!--{if isset($smarty.post.type) and $smarty.post.type=='company'}-->
+							<input type="radio" name="type" value="company" checked="checked"/>
+							<!--{else}-->
+							<input type="radio" name="type" value="company"/>
+							<!--{/if}-->
+							<span class="usertype">公司</span>
+						</div>
+						<div class="loginButton">
+							<button name="btnUsername" class="loginButton" title="用户名" type="submit">
+								<span class="loginButton">登录</span>
+							</button>
+						</div>
+						<div>
+							<span class="warn">{$warnInfo}</span>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</body>
