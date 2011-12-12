@@ -57,9 +57,9 @@
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last usernameInput">
-						<input class="input1" name="username" value="{ci_form_validation field='username'}" title="用户名" type="text" />
+						<input class="input1" name="username" value="{postData name='username'}" title="用户名" type="text" />
 						<div class="inline error1">
-							用户名错误提示
+							 {$userNameErrorInfo|checkNull}
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19 append-26 last passLabel">
@@ -70,7 +70,7 @@
 					<div class="clear span-19 prepend-19  append-26 last passInput">
 						<input class="input1" name="password" title="密码" type="text" />
 						<div class="inline error1">
-							密码错误提示
+							 {$passErrorInfo|checkNull}
 						</div>
 						 
 					</div>
@@ -106,7 +106,7 @@
 							</button>
 						</div>
 						<div class="inline error1">
-							 {$warnInfo}
+							 {$loginErrorInfo|checkNull}
 						</div>
 						 
 					</div>

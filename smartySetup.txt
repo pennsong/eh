@@ -1,5 +1,15 @@
 1) add smarty libs into CI's system/libraries/Smarty/libs
-2) add custom functions: function.ci_config.php, function.ci_form_validation.php, function.ci_language.php, function.ci_session.php, function.ci_validation.php, function.url.php, prefilter.convertSmartyDelimiter.php into system/libraries/Smarty/libs/plugins/
+2) add following custom functions into system/libraries/Smarty/libs/plugins/: 
+function.ci_config.php,
+function.ci_form_validation.php,
+function.ci_language.php,
+function.ci_session.php,
+function.ci_validation.php,
+function.postData.php,
+function.url.php,
+modifier.checkNull.php,
+prefilter.convertSmartyDelimiter.php
+
 3) create folder 'templates' and 'templates_c' in application/views
 4) add 'templates_c' into .gitignore
 5) add 'smarty' into CI's application/config/autoload.php: $autoload['libraries']
