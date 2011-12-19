@@ -19,6 +19,9 @@
 				background-image: url("{url}resource/pic/bgfirst.png");
 				background-repeat: repeat-x;
 			}
+			.defaultTextActive {
+				color: #a1a1a1;
+			}
 			div.title {
 				padding-top: 10px;
 				padding-bottom: 30px;
@@ -45,6 +48,19 @@
 		</style>
 		<script>
 			$(document).ready(function() {
+				$(".defaultText").focus(function(srcc) {
+					if($(this).val() == $(this)[0].title) {
+						$(this).removeClass("defaultTextActive");
+						$(this).val("");
+					}
+				});
+				$(".defaultText").blur(function() {
+					if($(this).val() == "") {
+						$(this).addClass("defaultTextActive");
+						$(this).val($(this)[0].title);
+					}
+				});
+				$(".defaultText").blur();
 				$("#loginForm").validationEngine();
 			});
 			function checkUserName(field, rules, i, options) {
@@ -93,7 +109,7 @@
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last usernameInput">
-						<input id="username" name="username" class="input1 validate[required,custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{postData name='username'}" title="用户名" type="text" />
+						<input id="username" name="username" class="defaultText input1 validate[required, custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{postData name='username'}" title="请输入用户名" type="text" />
 						<div class="inline error1">
 							 {$userNameErrorInfo|checkNull}
 						</div>
@@ -104,7 +120,7 @@
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last passInput">
-						<input id="password" name="password" class="input1 validate[required, custom[onlyLetterNumber], minSize[6], maxSize[20]]" title="密码" type="text" />
+						<input id="password" name="password" class="defaultText input1 validate[required, custom[onlyLetterNumber], minSize[6], maxSize[20]]" title="请输入密码" type="text" />
 						<div class="inline error1">
 							 {$passErrorInfo|checkNull}
 						</div>
@@ -137,7 +153,7 @@
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last">
 						<div class="inline">
-							<button class="button1" type="submit">
+							<button id="loginButton" class="button1" type="submit">
 								进入E-hiring
 							</button>
 						</div>
