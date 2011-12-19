@@ -34,12 +34,12 @@ class Login extends CI_Controller {
 
 	public function authenticate(&$vars) {
 		if ($this -> input -> post('type') == 'hunter') {
-			$tmpRes = $this -> db -> query('SELECT * FROM hunter WHERE account = ?', $this -> input -> post('username'));
+			$tmpRes = $this -> db -> query('SELECT * FROM hunter WHERE account = ?', strtolower($this -> input -> post('username')));
 			if ($tmpRes) {
 				if ($tmpRes -> num_rows() > 0) {
 					$tmpArr = $tmpRes -> first_row('array');
-					if ($tmpArr['password'] == $this -> input -> post('password')) {
-						$this -> session -> set_userdata('userAccount', $this -> input -> post('username'));
+					if ($tmpArr['password'] == strtolower($this -> input -> post('password'))) {
+						$this -> session -> set_userdata('userAccount', strtolower($this -> input -> post('username')));
 						$this -> session -> set_userdata('userId', $tmpArr['id']);
 						$this -> session -> set_userdata('type', 'hunter');
 						return TRUE;
@@ -60,12 +60,12 @@ class Login extends CI_Controller {
 				return FALSE;
 			}
 		} else if ($this -> input -> post('type') == 'company') {
-			$tmpRes = $this -> db -> query('SELECT * FROM company WHERE account = ?', $this -> input -> post('username'));
+			$tmpRes = $this -> db -> query('SELECT * FROM company WHERE account = ?', strtolower($this -> input -> post('username')));
 			if ($tmpRes) {
 				if ($tmpRes -> num_rows() > 0) {
 					$tmpArr = $tmpRes -> first_row('array');
-					if ($tmpArr['password'] == $this -> input -> post('password')) {
-						$this -> session -> set_userdata('userAccount', $this -> input -> post('username'));
+					if ($tmpArr['password'] == strtolower($this -> input -> post('password'))) {
+						$this -> session -> set_userdata('userAccount', strtolower($this -> input -> post('username')));
 						$this -> session -> set_userdata('userId', $tmpArr['id']);
 						$this -> session -> set_userdata('type', 'company');
 						return TRUE;

@@ -9,6 +9,11 @@
 		<link rel="stylesheet" href="{url}resource/css/print.css" type="text/css" media="print"/>
 		<!--[if lt IE 8]><link rel="stylesheet" href="{url}resource/css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
 		<link rel="stylesheet" href="{url}resource/css/user.css" type="text/css" media="screen, projection"/>
+		<link rel="stylesheet" href="{url}resource/css/template.css" type="text/css" media="screen, projection"/>
+		<link rel="stylesheet" href="{url}resource/css/validationEngine.jquery.css" type="text/css" media="screen, projection"/>
+		<script src="{url}resource/css/jquery.js" type="text/javascript"></script>
+		<script src="{url}resource/css/jquery.validationEngine.js" type="text/javascript"></script>
+		<script src="{url}resource/css/languages/jquery.validationEngine-zh_CN.js" type="text/javascript"></script>
 		<style type="text/css" media="screen">
 			body {
 				background-image: url("{url}resource/pic/bgfirst.png");
@@ -38,6 +43,37 @@
 				padding-bottom: 10px;
 			}
 		</style>
+		<script>
+			$(document).ready(function() {
+				$("#loginForm").validationEngine();
+			});
+			function checkUserName(field, rules, i, options) {
+				var err = new Array();
+				var reg1 = /^[_\.].*/;
+				var reg2 = /.*[_\.]$/;
+				var str = field.val();
+				if(reg1.test(str) || reg2.test(str)) {
+					err.push('* 不能以下划线或点开始或结束！');
+				}
+				if(countOccurrences(str, '.') > 1 || countOccurrences(str, '_') > 1) {
+					err.push('* 一个用户名仅允许包含一个下划线或一个点！');
+				}
+				if(err.length > 0) {
+					return err.join("<br>");
+				}
+			}
+
+			function countOccurrences(str, character) {
+				var i = 0;
+				var count = 0;
+				for( i = 0; i < str.length; i++) {
+					if(str.charAt(i) == character) {
+						count++;
+					}
+				}
+				return count;
+			}
+		</script>
 	</head>
 	<body>
 		<div class="container">
@@ -50,14 +86,14 @@
 						欢迎来到E-hiring
 					</div>
 				</div>
-				<form action="{url type='site' url='login/submit_validate'}" method="post">
+				<form id="loginForm" action="{url type='site' url='login/submit_validate'}" method="post">
 					<div class="clear span-19 prepend-19 append-26 last usernameLabel">
 						<div class="label1">
 							用户名
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last usernameInput">
-						<input class="input1" name="username" value="{postData name='username'}" title="用户名" type="text" />
+						<input id="username" name="username" class="input1 validate[required,custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{postData name='username'}" title="用户名" type="text" />
 						<div class="inline error1">
 							 {$userNameErrorInfo|checkNull}
 						</div>
@@ -68,7 +104,7 @@
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last passInput">
-						<input class="input1" name="password" title="密码" type="text" />
+						<input id="password" name="password" class="input1 validate[required, custom[onlyLetterNumber], minSize[6], maxSize[20]]" title="密码" type="text" />
 						<div class="inline error1">
 							 {$passErrorInfo|checkNull}
 						</div>
@@ -82,17 +118,17 @@
 					</div>
 					<div class="clear span-19 prepend-19 append-26 last chooseType">
 						<!--{if !isset($smarty.post.type) or ($smarty.post.type!='company')}-->
-						<input type="radio" name="type" value="hunter" checked="checked"/>
+						<input class="validate[required]" type="radio" name="type" id="typeHunter" value="hunter" checked="checked"/>
 						<!--{else}-->
-						<input type="radio" name="type" value="hunter"/>
+						<input class="validate[required]" type="radio" name="type" id="typeHunter" value="hunter"/>
 						<!--{/if}-->
 						<div class="label1 inline">
 							伯乐
 						</div>
 						<!--{if isset($smarty.post.type) and $smarty.post.type=='company'}-->
-						<input type="radio" name="type" value="company" checked="checked"/>
+						<input class="validate[required]" type="radio" name="type" id="typeCompany" value="company" checked="checked"/>
 						<!--{else}-->
-						<input type="radio" name="type" value="company"/>
+						<input class="validate[required]" type="radio" name="type" id="typeCompany" value="company"/>
 						<!--{/if}-->
 						<div class="label1 inline">
 							公司
