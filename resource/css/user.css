@@ -1,6 +1,9 @@
 .inline {
 	display: inline;
 }
+.relative {
+	position: relative;
+}
 .head1 {
 	height: 30px;
 	line-height: 30px;

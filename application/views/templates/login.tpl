@@ -19,8 +19,7 @@
 				background-image: url("{url}resource/pic/bgfirst.png");
 				background-repeat: repeat-x;
 			}
-			.defaultTextActive {
-				color: #a1a1a1;
+			.defaultText {
 			}
 			div.title {
 				padding-top: 10px;
@@ -45,19 +44,28 @@
 			div.chooseType {
 				padding-bottom: 10px;
 			}
+			div.defaultStr {
+				position: absolute;
+				top: 0px;
+				left: 2px;
+				font-size: 14px;
+				line-height: 14px;
+				height: 14px;
+				color: #a1a1a1;
+				z-index: 1;
+			}
 		</style>
 		<script>
 			$(document).ready(function() {
+				$(".defaultStr").click(function() {
+					$(this).prev(".defaultText").focus();
+				});
 				$(".defaultText").focus(function(srcc) {
-					if($(this).val() == $(this)[0].title) {
-						$(this).removeClass("defaultTextActive");
-						$(this).val("");
-					}
+					$(this).next(".defaultStr").hide();
 				});
 				$(".defaultText").blur(function() {
 					if($(this).val() == "") {
-						$(this).addClass("defaultTextActive");
-						$(this).val($(this)[0].title);
+						$(this).next(".defaultStr").show();
 					}
 				});
 				$(".defaultText").blur();
@@ -109,7 +117,12 @@
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last usernameInput">
-						<input id="username" name="username" class="defaultText input1 validate[required, custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{postData name='username'}" title="请输入用户名" type="text" />
+						<div class="inline relative">
+							<input id="username" name="username" class="defaultText input1 validate[required, custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{postData name='username'}" type="text" />
+							<div class="inline defaultStr">
+								请输入用户名
+							</div>
+						</div>
 						<div class="inline error1">
 							 {$userNameErrorInfo|checkNull}
 						</div>
@@ -120,7 +133,12 @@
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last passInput">
-						<input id="password" name="password" class="defaultText input1 validate[required, custom[onlyLetterNumber], minSize[6], maxSize[20]]" title="请输入密码" type="text" />
+						<div class="inline relative">
+							<input id="password" name="password" class="defaultText input1 validate[required, custom[onlyLetterNumber], minSize[6], maxSize[20]]" type="text" />
+							<div class="inline defaultStr">
+								请输入密码
+							</div>
+						</div>
 						<div class="inline error1">
 							 {$passErrorInfo|checkNull}
 						</div>
