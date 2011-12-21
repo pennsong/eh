@@ -56,7 +56,7 @@ class Login extends CI_Controller {
 				}
 			} else {
 				//查询失败
-				$vars['loginErrorInfo'] = "网络繁忙，查询错误，请重试!";
+				$vars['loginErrorInfo'] = "系统繁忙，请稍后尝试进入";
 				return FALSE;
 			}
 		} else if ($this -> input -> post('type') == 'company') {
@@ -82,7 +82,7 @@ class Login extends CI_Controller {
 				}
 			} else {
 				//查询失败
-				$vars['loginErrorInfo'] = "网络繁忙，查询错误，请重试!";
+				$vars['loginErrorInfo'] = "系统繁忙，请稍后尝试进入";
 				return FALSE;
 			}
 		} else {

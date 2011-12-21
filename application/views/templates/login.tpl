@@ -46,6 +46,7 @@
 			}
 			div.defaultStr {
 				position: absolute;
+				display: none;
 				top: 0px;
 				left: 2px;
 				font-size: 14px;
@@ -60,7 +61,8 @@
 				$(".defaultStr").click(function() {
 					$(this).prev(".defaultText").focus();
 				});
-				$(".defaultText").focus(function(srcc) {
+				$(".defaultText").focus(function() {
+					$(".error1").html('');
 					$(this).next(".defaultStr").hide();
 				});
 				$(".defaultText").blur(function() {
