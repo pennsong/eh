@@ -45,6 +45,8 @@
 				padding-bottom: 10px;
 			}
 			div.defaultStr {
+				padding-top:4px;
+				padding-bottom:2px;
 				position: absolute;
 				display: none;
 				top: 0px;
@@ -54,6 +56,12 @@
 				height: 14px;
 				color: #a1a1a1;
 				z-index: 1;
+			}
+			div.tt
+			{
+				width: 200px;
+				height: 20px;
+				background-color: red;
 			}
 		</style>
 		<script>
@@ -119,7 +127,7 @@
 						</div>
 					</div>
 					<div class="clear span-19 prepend-19  append-26 last usernameInput">
-						<div class="inline relative">
+						<div class="inline relative tt">
 							<input id="username" name="username" class="defaultText input1 validate[required, custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{postData name='username'}" type="text" />
 							<div class="inline defaultStr">
 								请输入用户名

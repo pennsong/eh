@@ -1,5 +1,5 @@
 .inline {
-	display: inline;
+	display: inline-block;
 }
 .relative {
 	position: relative;
@@ -28,11 +28,16 @@
 	color: black;
 }
 .input1 {
+	margin: 0px;
+	border-width: 2px;
+	padding: 0px;
 	height: 14px;
 	line-height: 14px;
 	font-size: 14px;
 	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
 	color: black;
+	vertical-align: -2px;
+
 }
 .error1 {
 	height: 14px;
