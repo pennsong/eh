@@ -1482,11 +1482,11 @@ legend, #IE8#HACK {
 	margin-top: 0;
 	margin-bottom: 0;
 }
-input[type=text], input[type=password], input.text, input.title, textarea {
+input.password, input.text, input.title, textarea {
 	background-color: #fff;
 	border: 1px solid #bbb;
 }
-input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus {
+input.password:focus, input.text:focus, input.title:focus, textarea:focus {
 	border-color: #666;
 }
 select {
@@ -1494,7 +1494,7 @@ select {
 	border-width: 1px;
 	border-style: solid;
 }
-input[type=text], input[type=password], input.text, input.title, textarea, select {
+input.password, input.text, input.title, textarea, select {
 	margin: 0.5em 0;
 }
 input.text, input.title {
