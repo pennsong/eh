@@ -1020,7 +1020,7 @@ input.span-64, textarea.span-64 {
 	padding-left: 945px;
 }
 .border {
-	padding-right: -1px;
+	padding-right: 0px;
 	margin-right: 0px;
 	border-right: 1px solid #ddd;
 }
