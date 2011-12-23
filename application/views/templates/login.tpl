@@ -30,6 +30,10 @@
 				padding-bottom: 7px;
 				height: 14px;
 			}
+			div.userType
+			{
+				height: 19px;
+			}
 		</style>
 		<script>
 			$(document).ready(function() {
@@ -81,18 +85,18 @@
 			<div class="span-64 last">
 				  <img class="logo" src="{url}resource/pic/logo.png"/>
 			</div>
-			<div class="clear prepend-19 last">
+			<div class="clear prepend-19 last append-bottom20">
 				<div class="head1">
 					欢迎来到E-hiring
 				</div>
 			</div>
 			<form id="loginForm" action="{url type='site' url='login/submit_validate'}" method="post">
-				<div class="clear prepend-19">
+				<div class="clear prepend-19 append-bottom5">
 					<div class="label1">
 						用户名
 					</div>
 				</div>
-				<div class="clear prepend-19 span-11 inline">
+				<div class="clear prepend-19 span-11 inline append-bottom10">
 					<div class="relative">
 						<input id="username" name="username" class="defaultStrContainer input1 validate[required, custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{postData name='username'}" type="text" />
 						<div class="defaultStr defaultStr1 userNameDefaultStr">
@@ -103,12 +107,12 @@
 				<div class="error1">
 					abc{$userNameErrorInfo|checkNull}
 				</div>
-				<div class="clear prepend-19">
+				<div class="clear prepend-19 append-bottom5">
 					<div class="label1">
 						密码
 					</div>
 				</div>
-				<div class="clear prepend-19 span-11 inline">
+				<div class="clear prepend-19 span-11 inline append-bottom20">
 					<div class="relative">
 						<input id="password" name="password" class="defaultStrContainer input1 validate[required, custom[onlyLetterNumber], minSize[6], maxSize[20]]" type="text" />
 						<div class="defaultStr defaultStr1 userNameDefaultStr">
@@ -119,12 +123,12 @@
 				<div class="error1">
 					abc{$passErrorInfo|checkNull}
 				</div>
-				<div class="clear prepend-19">
+				<div class="clear prepend-19 append-bottom5">
 					<div class="label1">
 						请选择您的身份
 					</div>
 				</div>
-				<div class="clear prepend-19">
+				<div class="clear prepend-19 append-bottom20 userType">
 					<!--{if !isset($smarty.post.type) or ($smarty.post.type!='company')}-->
 					<input class="span-2 validate[required]" type="radio" name="type" id="typeHunter" value="hunter" checked="checked"/>
 					<!--{else}-->
