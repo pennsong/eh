@@ -4,6 +4,23 @@
 .relative {
 	position: relative;
 }
+/*user interface defined by system specification*/
+.defaultStrContainer {
+	z-index: 100;
+}
+.defaultStr1 {
+	padding-top: 4px;
+	padding-bottom: 2px;
+	position: absolute;
+	top: 0px;
+	left: 2px;
+	font-size: 14px;
+	line-height: 14px;
+	height: 14px;
+	color: #a1a1a1;
+	z-index: 200;
+	display: inline-block;
+}
 .head1 {
 	height: 30px;
 	line-height: 30px;
@@ -11,6 +28,91 @@
 	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
 	font-weight: bold;
 	color: black;
+	display: inline-block;
+}
+.head2 {
+	height: 20px;
+	line-height: 20px;
+	font-size: 20px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	font-weight: bold;
+	color: black;
+	display: inline-block;
+}
+.head3 {
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	font-weight: bold;
+	color: black;
+	display: inline-block;
+}
+.head4 {
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	font-weight: bold;
+	color: white;
+	display: inline-block;
+}
+.text1 {
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	color: black;
+	display: inline-block;
+}
+.text2 {
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	color: white;
+	display: inline-block;
+}
+.text3 {
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	color: white;
+	display: inline-block;
+}
+.input1 {
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	color: black;
+}
+.button1 {
+	margin: 0px;
+	border-width: 2px;
+	padding: 2px;
+	height: 28px;
+	width: 100px;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	font-weight: bold;
+	color: black;
+}
+.link1 {
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	color: blue;
+}
+.link3 {
+	height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+	color: white;
 }
 .label1 {
 	height: 16px;
@@ -18,26 +120,23 @@
 	font-size: 16px;
 	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
 	color: black;
+	display: inline-block;
 }
-.button1 {
-	height: 30px;
-	line-height: 14px;
-	font-size: 14px;
+.label2 {
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
 	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
-	font-weight: bold;
-	color: black;
+	color: white;
+	display: inline-block;
 }
-.input1 {
-	margin: 0px;
-	border-width: 2px;
-	padding: 0px;
+.label3 {
 	height: 14px;
 	line-height: 14px;
 	font-size: 14px;
 	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
 	color: black;
-	vertical-align: -2px;
-
+	display: inline-block;
 }
 .error1 {
 	height: 14px;
@@ -46,4 +145,5 @@
 	font-family: 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
 	font-weight: bold;
 	color: red;
+	display: inline-block;
 }
