@@ -5,12 +5,12 @@
 		<meta content="Boks - 0.5.8" name="generator"/>
 		<title>{$page_title}</title>
 		<!-- Framework CSS -->
-		<link rel="stylesheet" href="{url}resource/css/screen.css" type="text/css" media="screen, projection"/>
-		<link rel="stylesheet" href="{url}resource/css/print.css" type="text/css" media="print"/>
-		<!--[if lt IE 8]><link rel="stylesheet" href="{url}resource/css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
-		<link rel="stylesheet" href="{url}resource/css/user.css" type="text/css" media="screen, projection"/>
-		<script src="{url}resource/css/jquery.js"></script>
-		<script src="{url}resource/flowplayer/flowplayer-3.2.6.min.js"></script>
+		<link rel="stylesheet" href="{cw_ci_base_url}resource/css/screen.css" type="text/css" media="screen, projection"/>
+		<link rel="stylesheet" href="{cw_ci_base_url}resource/css/print.css" type="text/css" media="print"/>
+		<!--[if lt IE 8]><link rel="stylesheet" href="{cw_ci_base_url}resource/css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
+		<link rel="stylesheet" href="{cw_ci_base_url}resource/css/user.css" type="text/css" media="screen, projection"/>
+		<script src="{cw_ci_base_url}resource/css/jquery.js"></script>
+		<script src="{cw_ci_base_url}resource/flowplayer/flowplayer-3.2.6.min.js"></script>
 	</head>
 	<body>
 		<div class="container">

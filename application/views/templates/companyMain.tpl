@@ -10,7 +10,7 @@
 		$(".word").click(function() {
 			$(".draw").html("");
 			$(".draw").hide();
-			$(".draw").load("{url type='site' url='companyDraw/index'}/" + $("#contentItemId", this).val(), function(responseText, textStatus, XMLHttpRequest) {
+			$(".draw").load("{cw_ci_site_url path='companyDraw/index'}/" + $("#contentItemId", this).val(), function(responseText, textStatus, XMLHttpRequest) {
 				if(textStatus == 'success') {
 					$(".draw").show()
 				}
@@ -28,7 +28,7 @@
 		<!--{foreach $hunterTalentRecord as $item}-->
 		<div class="content">
 			<div class="clogo">
-				<img src="{url}resource/pic/default_profile_6_normal.png" />
+				<img src="{cw_ci_base_url}resource/pic/default_profile_6_normal.png" />
 			</div>
 			<div class="word">
 				<input type="hidden" id="contentItemId" value="{$item['id']}"/>
@@ -45,7 +45,7 @@
 		</div>
 		<!--{/foreach}-->
 		<div class="head">
-			{ci_create_links}
+			{cw_ci_create_links}
 		</div>
 	</div>
 	<div class="dashboard prepend-1 span-7">

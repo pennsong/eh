@@ -5,18 +5,18 @@
 		<meta content="Boks - 0.5.8" name="generator"/>
 		<title>登录</title>
 		<!-- Framework CSS -->
-		<link rel="stylesheet" href="{url}resource/css/screen.css" type="text/css" media="screen, projection"/>
-		<link rel="stylesheet" href="{url}resource/css/print.css" type="text/css" media="print"/>
-		<!--[if lt IE 8]><link rel="stylesheet" href="{url}resource/css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
-		<link rel="stylesheet" href="{url}resource/css/user.css" type="text/css" media="screen, projection"/>
-		<link rel="stylesheet" href="{url}resource/css/template.css" type="text/css" media="screen, projection"/>
-		<link rel="stylesheet" href="{url}resource/css/validationEngine.jquery.css" type="text/css" media="screen, projection"/>
-		<script src="{url}resource/css/jquery.js" type="text/javascript"></script>
-		<script src="{url}resource/css/jquery.validationEngine.js" type="text/javascript"></script>
-		<script src="{url}resource/css/languages/jquery.validationEngine-zh_CN.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="{cw_ci_base_url}resource/css/screen.css" type="text/css" media="screen, projection"/>
+		<link rel="stylesheet" href="{cw_ci_base_url}resource/css/print.css" type="text/css" media="print"/>
+		<!--[if lt IE 8]><link rel="stylesheet" href="{cw_ci_base_url}resource/css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
+		<link rel="stylesheet" href="{cw_ci_base_url}resource/css/user.css" type="text/css" media="screen, projection"/>
+		<link rel="stylesheet" href="{cw_ci_base_url}resource/css/template.css" type="text/css" media="screen, projection"/>
+		<link rel="stylesheet" href="{cw_ci_base_url}resource/css/validationEngine.jquery.css" type="text/css" media="screen, projection"/>
+		<script src="{cw_ci_base_url}resource/css/jquery.js" type="text/javascript"></script>
+		<script src="{cw_ci_base_url}resource/css/jquery.validationEngine.js" type="text/javascript"></script>
+		<script src="{cw_ci_base_url}resource/css/languages/jquery.validationEngine-zh_CN.js" type="text/javascript"></script>
 		<style type="text/css" media="screen">
 			body {
-				background-image: url("{url}resource/pic/bgfirst.png");
+				background-image: url("{cw_ci_base_url}resource/pic/bgfirst.png");
 				background-repeat: repeat-x;
 			}
 			img.logo {
@@ -83,14 +83,14 @@
 	<body>
 		<div class="container">
 			<div class="span-64 last">
-				  <img class="logo" src="{url}resource/pic/logo.png"/>
+				  <img class="logo" src="{cw_ci_base_url}resource/pic/logo.png"/>
 			</div>
 			<div class="clear prepend-19 last append-bottom20">
 				<div class="head1">
 					欢迎来到E-hiring
 				</div>
 			</div>
-			<form id="loginForm" action="{url type='site' url='login/submit_validate'}" method="post">
+			<form id="loginForm" action="{cw_ci_site_url path='login/submit_validate'}" method="post">
 				<div class="clear prepend-19 append-bottom5">
 					<div class="label1">
 						用户名
@@ -98,7 +98,7 @@
 				</div>
 				<div class="clear prepend-19 span-11 inline append-bottom10">
 					<div class="relative">
-						<input id="username" name="username" class="defaultStrContainer input1 validate[required, custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{postData name='username'}" type="text" />
+						<input id="username" name="username" class="defaultStrContainer input1 validate[required, custom[onlyLetterNumberUnderLineDot], minSize[6], maxSize[15], funcCall[checkUserName]]" value="{cw_ci_set_value name='username'}" type="text" />
 						<div class="defaultStr defaultStr1 userNameDefaultStr">
 							请输入用户名
 						</div>
