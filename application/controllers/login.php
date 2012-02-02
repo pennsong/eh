@@ -32,8 +32,41 @@ class Login extends CI_Controller {
 		}
 	}
 
+	private function _checkDataFormat(&$result) {
+		$this->load->library('form_validation');
+		$config = array(
+				array(
+						'field' => 'username',
+						'label' => '用户名',
+						'rules' => 'required'
+				),
+				array(
+						'field' => 'password',
+						'label' => '密码',
+						'rules' => 'required'
+				)
+		);
+		$this->form_validation->set_rules($config);
+		$this->form_validation->set_error_delimiters('', '');
+		if ($this->form_validation->run() == FALSE)
+		{
+			$result = validation_errors();
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+		
+
+	}
+
 	public function authenticate(&$vars) {
-		if ($this -> input -> post('type') == 'hunter') {
+		//check data format
+		if (!($this -> _checkDataFormat($result))) {
+			$vars['loginErrorInfo'] = $result;
+			return FALSE;
+		} else if ($this -> input -> post('type') == 'hunter') {
 			$tmpRes = $this -> db -> query('SELECT * FROM hunter WHERE account = ?', strtolower($this -> input -> post('username')));
 			if ($tmpRes) {
 				if ($tmpRes -> num_rows() > 0) {

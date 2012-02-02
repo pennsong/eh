@@ -139,7 +139,7 @@
 	height: 14px;
 	color: #a1a1a1;
 	z-index: 200;
-	display: inline-block;
+	display: none;
 }
 .head1 {
 	height: 30px;

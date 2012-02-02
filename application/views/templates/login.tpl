@@ -30,8 +30,7 @@
 				padding-bottom: 7px;
 				height: 14px;
 			}
-			div.userType
-			{
+			div.userType {
 				height: 19px;
 			}
 		</style>
@@ -60,7 +59,7 @@
 				if(reg1.test(str) || reg2.test(str)) {
 					err.push('* 不能以下划线或点开始或结束！');
 				}
-				if(countOccurrences(str, '.') > 1 || countOccurrences(str, '_') > 1) {
+				if((countOccurrences(str, '.') + countOccurrences(str, '_')) > 1) {
 					err.push('* 一个用户名仅允许包含一个下划线或一个点！');
 				}
 				if(err.length > 0) {
